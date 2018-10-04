@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 	<div class="container section-inner">
 		<div class="banner-title"><?php echo get_bloginfo( 'name' ); ?></div>
-		<div class="main_btn" id="home_btn"></div>
+		<div class="main_btn" id="home_btn"><?php echo get_option('action_text'); ?></div>
 		<div class="scroll_prompt">scroll for more
 			<br>
 			<p style="width: 0;height: 0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 10px solid #fff;margin: 0 auto;"></p>

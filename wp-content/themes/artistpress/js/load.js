@@ -40,16 +40,9 @@ pageLoadApp.homepage = (function(){
 		page_sections.push(document.getElementsByClassName('page-section')[i]);
 	}
 
-	var loadBGs = function () {
-		page_sections.forEach(function(item) {
-			var thisClassName = item.classList[1]
-			document.getElementsByClassName(thisClassName)[0].style.backgroundImage = 'url('+infoObj[pageName][thisClassName].img+')';
-		})
-	}
-
 	var miscellaneousActions = function () {
 		// document.getElementsByClassName('banner-title')[0].innerHTML = infoObj[pageName].banner.title;
-		document.getElementsByClassName('main_btn')[0].innerHTML = infoObj[pageName].banner.action_txt;
+		document.getElementsByClassName('main_btn')[0].innerHTML = "Listen Now";
 
 		var navi_top = window.innerWidth <= 768 ? document.getElementsByClassName('navi-mobile-cont')[0].clientHeight : document.getElementsByClassName('navi')[0].clientHeight
 
@@ -70,7 +63,7 @@ pageLoadApp.homepage = (function(){
 		miscellaneousActions:miscellaneousActions,
 		buildPage: function() {
 			// definePageHeight();
-			loadBGs();
+			// loadBGs();
 			miscellaneousActions();
 		}
 	}
@@ -166,90 +159,12 @@ pageLoadApp.sizing_and_positioning = (function(){
 
 })();
 
-pageLoadApp.lightbox = (function(){
-	var lightbox_html = 
-		'<div class="light-box">' +
-			'<div class="x_btn"></div>' +
-			'<div class="container section-inner">'+
-				'<div class="inner_container">'+
-					'<div class="embed-responsive embed-responsive-16by9">'+
-					  	'<iframe class="embed-responsive-item" id="popup-embed" src="" allowfullscreen></iframe>'+
-					'</div>'+
-				'</div>'+
-			'</div>'+
-		'</div>';
-
-	var body = document.getElementsByTagName('body')[0];
-	var lightbox;
-	var lightbox_inner;
-	var lightbox_iframe;
-
-	var defineLightboxVars = function(){
-		lightbox = document.getElementsByClassName('light-box')[0];
-		lightbox_inner = document.querySelector('.light-box .section-inner');
-		lightbox_iframe = document.getElementById('popup-embed');
-	}
-
-	var showLightBox = function(src){
-		lightbox_iframe.src = src;
-		lightbox.style.display = 'block';
-		body.style.overflow = 'hidden';
-	}
-	
-	var hideLightBox = function(src){
-			lightbox.style.display = 'none';
-			body.style.overflow = 'auto';
-			lightbox_iframe.src = '';
-		}
-	
-	var animateScrollTo = function(target) {
-        $('html, body').animate({
-            scrollTop: $(target).offset().top + 'px'
-        }, 'medium');
-	}
-	
-	var setUpLightBoxTriggers = function(){
-		lightbox_iframe.onload =function() {
-			pageLoadApp.sizing_and_positioning.calculateFrameMargin(lightbox_inner);
-		};
-		var current_main_btn = pageName+'_btn';
-		console.log(current_main_btn);
-		document.getElementById(current_main_btn).addEventListener('click', function(){
-			if (infoObj.main_btn_click[current_main_btn].type === 'lightbox_content') {
-				showLightBox(infoObj.main_btn_click[current_main_btn].link)
-			}
-			if (infoObj.main_btn_click[current_main_btn].type === 'scroll') {
-				animateScrollTo(infoObj.main_btn_click[current_main_btn].target)
-			}
-			if (infoObj.main_btn_click[current_main_btn].type === 'link_out') {
-				window.location = infoObj.main_btn_click[current_main_btn].target
-			}
-		});
-		
-		document.querySelector('.light-box .x_btn').addEventListener('click', function(){
-			if (infoObj.main_btn_click[current_main_btn].type === 'lightbox_content') {
-				hideLightBox(infoObj.main_btn_click[current_main_btn].link)
-			}
-		});
-	}
-	var init = function () {
-		body.innerHTML = body.innerHTML + lightbox_html;
-		defineLightboxVars();
-		setUpLightBoxTriggers();
-
-	}
-	return{
-		init:init
-	}
-})();
-
 pageLoadApp.homepage.buildPage();
-pageLoadApp.lightbox.init();
 pageLoadApp.sizing_and_positioning.visual_fixes();
 window.addEventListener('resize', function(){
 	pageLoadApp.sizing_and_positioning.page_resize();
 	pageLoadApp.homepage.miscellaneousActions();
 })
-document.getElementsByClassName('navi-mobile-btn')[0].addEventListener('click', pageLoadApp.navi.openMobileNav);
-document.getElementsByClassName('x_btn mobile_x')[0].addEventListener('click', pageLoadApp.navi.closeMobileNav);
-pageLoadApp.navi.addNavClicks();
+// document.getElementsByClassName('navi-mobile-btn')[0].addEventListener('click', pageLoadApp.navi.openMobileNav);
+// document.getElementsByClassName('x_btn mobile_x')[0].addEventListener('click', pageLoadApp.navi.closeMobileNav);
+// pageLoadApp.navi.addNavClicks();

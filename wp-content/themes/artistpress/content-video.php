@@ -1,4 +1,4 @@
-<div class="page-section audio_playlist">
+<div class="page-section video_playlist">
 	<div class="container section-inner">
 		<div class="inner_container">
 			<div class="section_header"><?php the_title(); ?></div>

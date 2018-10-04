@@ -33,34 +33,22 @@
 
 	// Custom settings
 	function custom_settings_add_menu() {
-	  add_menu_page( 'Custom Settings', 'Custom Settings', 'manage_options', 'custom-settings', 'custom_settings_page', null, 99 );
+	  add_menu_page( 'Custom Theme Settings', 'Custom Theme Settings', 'manage_options', 'custom-theme-settings', 'theme_settings_page', null, 99 );
 	}
 	add_action( 'admin_menu', 'custom_settings_add_menu' );
 
 	// Create Custom Global Settings
-	function custom_settings_page() { ?>
+	function theme_settings_page() { ?>
 	  <div class="wrap">
 	    <h1>Social Media Settings</h1>
 	    <form method="post" action="options.php">
 	       <?php
-	           settings_fields( 'section' );
-	           do_settings_sections( 'theme-options' );      
-	           do_settings_sections( 'social-media-settings' );      
+	           settings_fields( 'custom-theme-settings' );
+	           do_settings_sections( 'theme-settings' );      
 	           submit_button(); 
 	       ?>          
 	    </form>
 	  </div>
-	<?php }
-
-	function setting_background_image() { ?>
-	  <input type="text" name="background_image" id="background_image" value="<?php echo get_option('background_image'); ?>" />
-	<?php }
-
-	function setting_background_color() { ?>
-	  <input type="text" name="background_color" id="background_color" value="<?php echo get_option('background_color'); ?>" />
-	<?php }
-	function setting_background_repeat() { ?>
-	  <input type="text" name="background_repeat" id="background_repeat" value="<?php echo get_option('background_repeat'); ?>" />
 	<?php }
 
 	function setting_instagram() { ?>
@@ -79,27 +67,32 @@
 	  <input type="text" name="soundcloud" id="soundcloud" value="<?php echo get_option( 'soundcloud' ); ?>" />
 	<?php } 
 
+	function setting_backround_image() { ?>
+	  <input type="text" name="backround_image" id="backround_image" value="<?php echo get_option( 'backround_image' ); ?>" />
+	<?php } 
 
-	function social_media_settings_page_setup() {
-	  add_settings_section( 'section', 'Theme Options', null, 'theme-options' );
-	  add_settings_field( 'background_image', 'Background Image URL', 'setting_background_image', 'theme-options', 'section' );
-	  add_settings_field( 'background_color', 'Background Color', 'setting_background_color', 'theme-options', 'section' );
-	  add_settings_field( 'background_repeat', 'Background Repeat URL', 'setting_background_repeat', 'theme-options', 'section' );
-	  add_settings_section( 'section', 'Social Media Settings', null, 'social-media-settings' );
-	  add_settings_field( 'soundcloud', 'Soundcloud URL', 'setting_soundcloud', 'social-media-settings', 'section' );
-	  add_settings_field( 'instagram', 'Instagram URL', 'setting_instagram', 'social-media-settings', 'section' );
-	  add_settings_field( 'twitter', 'Twitter URL', 'setting_twitter', 'social-media-settings', 'section' );
-	  add_settings_field( 'facebook', 'Facebook URL', 'setting_facebook', 'social-media-settings', 'section' );
+	function setting_backround_color() { ?>
+	  <input type="color" name="backround_color" id="backround_color" value="<?php echo get_option('backround_color'); ?>" />
+	<?php } 
 
-	  register_setting('background_image', 'soundcloud');
-	  register_setting('background_color', 'soundcloud');
-	  register_setting('background_repeat', 'soundcloud');
-	  register_setting('section', 'instagram');
-	  register_setting('section', 'twitter');
-	  register_setting('section', 'facebook');
-	  register_setting('section', 'soundcloud');
+
+	function custom_theme_settings_page_setup() {
+	  add_settings_section( 'custom-theme-settings', 'All Settings', null, 'theme-settings' );
+	  add_settings_field( 'backround_image', 'Backround image URL', 'setting_backround_image', 'theme-settings', 'custom-theme-settings' );
+	  add_settings_field( 'backround_color', 'Backround color', 'setting_backround_color', 'theme-settings', 'custom-theme-settings' );
+	  add_settings_field( 'soundcloud', 'Soundcloud URL', 'setting_soundcloud', 'theme-settings', 'custom-theme-settings' );
+	  add_settings_field( 'instagram', 'Instagram URL', 'setting_instagram', 'theme-settings', 'custom-theme-settings' );
+	  add_settings_field( 'twitter', 'Twitter URL', 'setting_twitter', 'theme-settings', 'custom-theme-settings' );
+	  add_settings_field( 'facebook', 'Facebook URL', 'setting_facebook', 'theme-settings', 'custom-theme-settings' );
+
+	  register_setting('custom-theme-settings', 'backround_image');
+	  register_setting('custom-theme-settings', 'backround_color');
+	  register_setting('custom-theme-settings', 'instagram');
+	  register_setting('custom-theme-settings', 'twitter');
+	  register_setting('custom-theme-settings', 'facebook');
+	  register_setting('custom-theme-settings', 'soundcloud');
 	}
-	add_action( 'admin_init', 'social_media_settings_page_setup' );
+	add_action( 'admin_init', 'custom_theme_settings_page_setup' );
 
 	// Custom Post Type
 	function create_my_custom_post() {
@@ -120,3 +113,4 @@
 		));
 	}
 	add_action( 'init', 'create_my_custom_post' );
+?>
