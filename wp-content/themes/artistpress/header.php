@@ -3,13 +3,6 @@
 <head>
 	<title><?php echo get_bloginfo( 'name' ); ?></title>
 	<meta name="description" content="<?php echo get_bloginfo( 'description' ); ?>">
-	<!-- CSS & FONT LINKS -->
-	<link rel="stylesheet" type="text/css" href="http://static.tumblr.com/voy8cl3/t32on9uwl/reset.css">
-	<link href='//fonts.googleapis.com/css?family=Titillium+Web:900' rel='stylesheet' type='text/css'>
-	<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-	<link rel="shortcut icon" href="http://www.iconj.com/ico/q/9/q91grdqee9.ico" type="image/x-icon" />
-	<link href="//static.tumblr.com/voy8cl3/7BZon9uyz/bootstrap.min.css" rel="stylesheet">
-	<link href="//static.tumblr.com/voy8cl3/a2rp3bufi/custom_1.css" rel="stylesheet">
 	<?php wp_head();?>
 </head>
 <body>
