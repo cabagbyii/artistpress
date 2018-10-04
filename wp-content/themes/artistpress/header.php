@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title><?php echo get_bloginfo( 'name' ); ?></title>
 	<meta name="description" content="<?php echo get_bloginfo( 'description' ); ?>">
+	<!-- CSS & FONT LINKS -->
+	<link rel="shortcut icon" href="http://www.iconj.com/ico/q/9/q91grdqee9.ico" type="image/x-icon" />
 	<?php wp_head();?>
 </head>
 <body>
