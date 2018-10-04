@@ -3,6 +3,7 @@
 <head>
 	<meta name="description" content="<?php echo get_bloginfo( 'description' ); ?>">
 	<!-- CSS & FONT LINKS -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link rel="shortcut icon" href="http://www.iconj.com/ico/q/9/q91grdqee9.ico" type="image/x-icon" />
 	<?php wp_head();?>
 </head>
@@ -30,9 +31,25 @@
 				</li> -->
 			</ul> 
 		</nav>
-		<!-- <nav class="mobile-navi">
-			<ul class="mobile-nav-list">
+		<nav class="social-media-nav">
+			<ul class="social-media-nav-list">
 				<li>
+					<a href="<?php echo get_option('soundcloud'); ?>"><i class="fab fa-soundcloud"></i></a>
+				</li> 
+				<li>
+					<a href="<?php echo get_option('instagram'); ?>"><i class="fab fa-instagram"></i></a>
+				</li>
+				<li>
+					<a href="<?php echo get_option('twitter'); ?>"><i class="fab fa-twitter"></i></a>
+				</li> 
+				<li>
+					<a href="<?php echo get_option('facebook'); ?>"><i class="fab fa-facebook"></i></a>
+				</li>
+			</ul> 
+		</nav>
+		<nav class="mobile-navi">
+			<ul class="mobile-nav-list">
+				<!-- <li>
 					<a>Home</a>
 				</li> 
 				<li>
@@ -46,7 +63,7 @@
 				</li>
 				<li>
 					<a>TheJam</a>
-				</li>
+				</li> -->
 			</ul> 
 			<div class="x_btn mobile_x"></div>
-		</nav> -->
+		</nav>

@@ -42,9 +42,13 @@ html, body{
     width: 315px;
     text-align: center;
     height: 50px;
-    line-height: 50px;
+    line-height: 44px;
+    font-weight: 600;
     font-size: 20px;
     cursor: pointer;
+}
+.main_btn_container:hover{
+	text-decoration: none;
 }
 .scroll_prompt{
 	color: white;
@@ -152,6 +156,18 @@ html, body{
 	font-size: 60px;
 	text-decoration: none;
 	font-family: 'Montserrat', sans-serif;
+}
+.social-media-nav{
+	position: absolute;
+	height: 100%;
+}
+.social-media-nav li{
+    padding: 10px;
+    font-size: 1.7em;
+    text-align: center;
+}
+.social-media-nav li a{
+	color: white;
 }
 #tumblr_controls, .tmblr-iframe{display:none !important;}
 .tmblr-iframe-pushdown{

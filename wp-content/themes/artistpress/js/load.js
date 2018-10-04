@@ -42,7 +42,6 @@ pageLoadApp.homepage = (function(){
 
 	var miscellaneousActions = function () {
 		// document.getElementsByClassName('banner-title')[0].innerHTML = infoObj[pageName].banner.title;
-		document.getElementsByClassName('main_btn')[0].innerHTML = "Listen Now";
 
 		var navi_top = window.innerWidth <= 768 ? document.getElementsByClassName('navi-mobile-cont')[0].clientHeight : document.getElementsByClassName('navi')[0].clientHeight
 

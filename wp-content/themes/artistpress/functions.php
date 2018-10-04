@@ -6,8 +6,7 @@
 		wp_enqueue_style( 'main_style', get_template_directory_uri() . '/style.css' );
 		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.3', true );
 		wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '3.3.6', true );
-		wp_enqueue_script( 'info', get_template_directory_uri() . '/js/info.js', array( 'jquery', 'bootstrap'), '1', true );
-		wp_enqueue_script( 'load', get_template_directory_uri() . '/js/load.js', array( 'jquery' ,'bootstrap', 'info' ), '1', true );
+		wp_enqueue_script( 'load', get_template_directory_uri() . '/js/load.js', array( 'jquery' ,'bootstrap'), '1', true );
 	}
 
 	add_action( 'wp_enqueue_scripts', 'artistpress_scripts' );
@@ -75,6 +74,14 @@
 	  <input type="color" name="backround_color" id="backround_color" value="<?php echo get_option('backround_color'); ?>" />
 	<?php } 
 
+	function setting_action_text() { ?>
+	  <input type="text" name="action_text" id="action_text" value="<?php echo get_option('action_text'); ?>" />
+	<?php }
+
+	function setting_action_url() { ?>
+	  <input type="text" name="action_url" id="action_url" value="<?php echo get_option('action_url'); ?>" />
+	<?php } 
+
 
 	function custom_theme_settings_page_setup() {
 	  add_settings_section( 'custom-theme-settings', 'All Settings', null, 'theme-settings' );
@@ -84,13 +91,16 @@
 	  add_settings_field( 'instagram', 'Instagram URL', 'setting_instagram', 'theme-settings', 'custom-theme-settings' );
 	  add_settings_field( 'twitter', 'Twitter URL', 'setting_twitter', 'theme-settings', 'custom-theme-settings' );
 	  add_settings_field( 'facebook', 'Facebook URL', 'setting_facebook', 'theme-settings', 'custom-theme-settings' );
+	  add_settings_field( 'action_text', 'Action Text', 'setting_action_text', 'theme-settings', 'custom-theme-settings' );
+	  add_settings_field( 'action_url', 'Action URL', 'setting_action_url', 'theme-settings', 'custom-theme-settings' );
 
 	  register_setting('custom-theme-settings', 'backround_image');
 	  register_setting('custom-theme-settings', 'backround_color');
 	  register_setting('custom-theme-settings', 'instagram');
 	  register_setting('custom-theme-settings', 'twitter');
-	  register_setting('custom-theme-settings', 'facebook');
+	  register_setting('custom-theme-settings', 'action_text');
 	  register_setting('custom-theme-settings', 'soundcloud');
+	  register_setting('custom-theme-settings', 'action_url');
 	}
 	add_action( 'admin_init', 'custom_theme_settings_page_setup' );
 
