@@ -100,6 +100,7 @@
 	  register_setting('custom-theme-settings', 'twitter');
 	  register_setting('custom-theme-settings', 'action_text');
 	  register_setting('custom-theme-settings', 'soundcloud');
+	  register_setting('custom-theme-settings', 'facebook');
 	  register_setting('custom-theme-settings', 'action_url');
 	}
 	add_action( 'admin_init', 'custom_theme_settings_page_setup' );
