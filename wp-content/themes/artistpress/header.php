@@ -8,6 +8,22 @@
 	<?php wp_head();?>
 </head>
 <body style="background-color:<?php echo get_option('backround_color'); ?>">
+	<nav class="social-media-nav">
+		<ul class="social-media-nav-list">
+			<li>
+				<a href="<?php echo get_option('soundcloud'); ?>"><i class="fab fa-soundcloud"></i></a>
+			</li> 
+			<li>
+				<a href="<?php echo get_option('instagram'); ?>"><i class="fab fa-instagram"></i></a>
+			</li>
+			<li>
+				<a href="<?php echo get_option('twitter'); ?>"><i class="fab fa-twitter"></i></a>
+			</li> 
+			<li>
+				<a href="<?php echo get_option('facebook'); ?>"><i class="fab fa-facebook"></i></a>
+			</li>
+		</ul> 
+	</nav>
 	<div class="loading_screen">
 		<p>LOADING...</p>
 	</div>
@@ -32,22 +48,6 @@
 				<li>
 					<a>TheJam</a>
 				</li> -->
-			</ul> 
-		</nav>
-		<nav class="social-media-nav">
-			<ul class="social-media-nav-list">
-				<li>
-					<a href="<?php echo get_option('soundcloud'); ?>"><i class="fab fa-soundcloud"></i></a>
-				</li> 
-				<li>
-					<a href="<?php echo get_option('instagram'); ?>"><i class="fab fa-instagram"></i></a>
-				</li>
-				<li>
-					<a href="<?php echo get_option('twitter'); ?>"><i class="fab fa-twitter"></i></a>
-				</li> 
-				<li>
-					<a href="<?php echo get_option('facebook'); ?>"><i class="fab fa-facebook"></i></a>
-				</li>
 			</ul> 
 		</nav>
 		<nav class="mobile-navi">

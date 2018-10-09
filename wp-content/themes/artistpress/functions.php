@@ -10,7 +10,8 @@
 
 		//localize params for use in load.js
 		$theme_params = array(
-		    'backround_image' => get_option('backround_image')
+		    'backround_image' => get_option('backround_image'),
+		    'action_url' => get_option('action_url'),
 		);
 
 		wp_localize_script( 'load', 'themeParams', $theme_params );

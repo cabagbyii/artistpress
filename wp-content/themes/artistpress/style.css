@@ -162,8 +162,11 @@ html, body{
 	font-family: 'Montserrat', sans-serif;
 }
 .social-media-nav{
-	position: absolute;
-	height: 100%;
+	width: 60px;
+}
+.social-media-nav-list{
+	height: 0;
+	margin-bottom: 0;
 }
 .social-media-nav li{
     padding: 10px;

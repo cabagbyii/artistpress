@@ -52,6 +52,10 @@ pageLoadApp.homepage = (function(){
 		var titlePadding = (pgHeight - titleAndBtnHeight)/2 ;
 
 		document.getElementsByClassName('banner-title')[0].style.paddingTop = titlePadding+'px';
+
+		document.getElementById('home_btn').addEventListener('click', function(){
+			window.open(themeParams.action_url, '_blank')
+		});
 	}
 
 	return {
@@ -156,7 +160,6 @@ pageLoadApp.sizing_and_positioning = (function(){
 var $ = jQuery; 
 
 var header_img = themeParams.backround_image;
-console.log(header_img);
 $('<img/>').attr('src', header_img).on('load', function() {
 	$(this).remove();
 	$('#home-head').css('background-image', 'url('+header_img+')');
@@ -166,7 +169,6 @@ $('<img/>').attr('src', header_img).on('load', function() {
 $('#home-head').on('banner_done', function(){
 	$('.loading_screen').hide();
 	$('body').css('overflow', 'auto');
-	$('html').css('overflow', 'auto');
 });
 
 pageLoadApp.homepage.buildPage();
