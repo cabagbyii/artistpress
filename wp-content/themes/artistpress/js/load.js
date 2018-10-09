@@ -47,15 +47,11 @@ pageLoadApp.homepage = (function(){
 
 		var pgHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - navi_top;
 		document.getElementsByClassName('banner-title')[0].style.paddingTop = '0px';
-		document.getElementsByClassName('scroll_prompt')[0].style.paddingTop = '0px';		
 		var titleAndBtnHeight = document.getElementsByClassName('banner-title')[0].clientHeight + document.getElementsByClassName('main_btn')[0].clientHeight;
 
 		var titlePadding = (pgHeight - titleAndBtnHeight)/2 ;
 
-		var scroll_prompt_padding =  titlePadding - (document.getElementsByClassName('scroll_prompt')[0].clientHeight + 20); 
-
 		document.getElementsByClassName('banner-title')[0].style.paddingTop = titlePadding+'px';
-		document.getElementsByClassName('scroll_prompt')[0].style.paddingTop = scroll_prompt_padding+'px';
 	}
 
 	return {
@@ -157,6 +153,21 @@ pageLoadApp.sizing_and_positioning = (function(){
 	}
 
 })();
+var $ = jQuery; 
+
+var header_img = themeParams.backround_image;
+console.log(header_img);
+$('<img/>').attr('src', header_img).on('load', function() {
+	$(this).remove();
+	$('#home-head').css('background-image', 'url('+header_img+')');
+	$('#home-head').trigger('banner_done');
+});
+
+$('#home-head').on('banner_done', function(){
+	$('.loading_screen').hide();
+	$('body').css('overflow', 'auto');
+	$('html').css('overflow', 'auto');
+});
 
 pageLoadApp.homepage.buildPage();
 pageLoadApp.sizing_and_positioning.visual_fixes();

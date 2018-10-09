@@ -6,6 +6,15 @@
 		wp_enqueue_style( 'main_style', get_template_directory_uri() . '/style.css' );
 		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.3', true );
 		wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '3.3.6', true );
+		wp_register_script( 'load', get_template_directory_uri() . '/js/load.js' );
+
+		//localize params for use in load.js
+		$theme_params = array(
+		    'backround_image' => get_option('backround_image')
+		);
+
+		wp_localize_script( 'load', 'themeParams', $theme_params );
+
 		wp_enqueue_script( 'load', get_template_directory_uri() . '/js/load.js', array( 'jquery' ,'bootstrap'), '1', true );
 	}
 
@@ -124,4 +133,6 @@
 		));
 	}
 	add_action( 'init', 'create_my_custom_post' );
+
+
 ?>

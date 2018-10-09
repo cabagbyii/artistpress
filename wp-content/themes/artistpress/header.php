@@ -8,7 +8,10 @@
 	<?php wp_head();?>
 </head>
 <body style="background-color:<?php echo get_option('backround_color'); ?>">
-	<div id="home-head" class="page-section banner" style="background-image:url(<?php echo get_option('backround_image'); ?>);">
+	<div class="loading_screen">
+		<p>LOADING...</p>
+	</div>
+	<div id="home-head" class="page-section banner">
 		<div class="navi-mobile-cont">
 			<div class="navi-mobile-btn"></div> 
 		</div> 
