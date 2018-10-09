@@ -173,6 +173,10 @@ html, body{
 .tmblr-iframe-pushdown{
     padding-top:0px !important;
 }
+.content_container{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
 @media (max-width: 992px){
 	.container {
 	    width: 100%;
